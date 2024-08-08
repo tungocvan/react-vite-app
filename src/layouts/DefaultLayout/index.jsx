@@ -42,7 +42,7 @@ const DefaultLayout = ({ children }) => {
               <img src={arrowLeft} width={'24px'} height={'24px'}/> : <img src={arrowRight} width={'24px'} height={'24px'}/>}
       </button>
       <main>
-      <div className={`flex ${sidebarOpen ? 'ml-0 md:ml-[260px]' : 'ml-0'}`}>
+      <div className={`flex ${sidebarOpen ? 'ml-0 md:ml-[260px]' : 'ml-0 justify-center'}`}>
         {children}
       </div>
 

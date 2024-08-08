@@ -26,6 +26,7 @@ export const saveAccountCurrent = createAsyncThunk('accounts/accountsFetched',
 const accountSlice = createSlice({
   name: "accounts",
   initialState: {    
+    isLoading: false,
     isLogin: false,
     account: {},
   },
@@ -46,23 +47,28 @@ const accountSlice = createSlice({
         // logic here
          state.account = action.payload  
       }) 
+    builder.addCase(loginUser.pending,(state, action) => {                 
+      state.isLoading = true
+    })  
     builder.addCase(loginUser.rejected,(state, action) => {                 
         toast.error("email hoặc mật khẩu không đúng", {          
           position: "top-left"
         });
+        state.isLoading = false
     })  
     builder.addCase(loginUser.fulfilled,(state, action) => {      
       if(action.payload.length === 0){
           state.isLogin = false
         
       }else{
-        state.isLogin = true
+        
         state.account = action.payload 
         sessionStorage.setItem('token',JSON.stringify(action.payload))
-        // console.log('payload:',action.payload)    
+        // console.log('payload:',action.payload)   
+        state.isLogin = true
       }
            
-      
+      state.isLoading = false
       
     })   
       
@@ -78,6 +84,9 @@ export const accountsSelector = (state) => {
 };
 export const isLoginSelector = (state) => {
   return state.accounts.isLogin;
+};
+export const isLoadingSelector = (state) => {
+  return state.accounts.isLoading;
 };
 
 

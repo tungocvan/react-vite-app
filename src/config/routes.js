@@ -1,6 +1,8 @@
 const routes = {    
     index: '/',
     login: '/login',
+    register: '/register',
+    forget: '/forget',
     logout: '/logout',
     dashboard: '/dashboard',
     home: '/home',

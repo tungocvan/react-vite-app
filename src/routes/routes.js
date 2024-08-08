@@ -12,11 +12,13 @@ import Upload from '~/pages/Upload';
 import Search from '~/pages/Search';
 import Live from '~/pages/Live';
 import Login from '~/pages/Login';
+import Register from '~/pages/Register';
 import Canlendar from '~/pages/Canlendar';
 import Documents from '~/pages/Documents';
 import Reports from '~/pages/Reports';
 import Dashboard from '~/pages/Dashboard';
 import Logout from '~/pages/Logout';
+import Forget from '~/pages/Forget';
 
 
 // Public routes
@@ -31,6 +33,8 @@ const publicRoutes = [
     { path: config.routes.upload, component: Upload, layout: HeaderOnly },
     { path: config.routes.login, component: Login, layout: null },
     { path: config.routes.logout, component: Logout, layout: null },
+    { path: config.routes.register, component: Register, layout: null },
+    { path: config.routes.forget, component: Forget, layout: null },
 
 ];
 
